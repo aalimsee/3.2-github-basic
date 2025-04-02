@@ -11,10 +11,9 @@ terraform {
       version = "~> 5.0" # Adjust as needed
     }
   }
+  # required for TFLint to work properly
   required_version = ">= 1.0.0" # Use the latest stable version or specify your desired version
 }
-
-
 
 terraform {
   backend "s3" {
@@ -27,6 +26,7 @@ terraform {
 data "aws_caller_identity" "current" {}
 
 locals {
+  # remove ${} from data.aws_caller_identity.current.arn
   name_prefix = split("/", data.aws_caller_identity.current.arn)[1]
   account_id  = data.aws_caller_identity.current.account_id
 }

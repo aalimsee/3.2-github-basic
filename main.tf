@@ -14,7 +14,7 @@ terraform {
 }
 
 terraform {
-  required_version = ">= 1.0.0" # Use the latest stable version or specify your desired version
+  required_version = "~> 1.0.0" # Use the latest stable version or specify your desired version
 }
 
 
@@ -29,7 +29,7 @@ terraform {
 data "aws_caller_identity" "current" {}
 
 locals {
-  name_prefix = split("/", "data.aws_caller_identity.current.arn")[1]
+  name_prefix = split("/", data.aws_caller_identity.current.arn)[1]
   account_id  = data.aws_caller_identity.current.account_id
 }
 

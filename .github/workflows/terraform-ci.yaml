@@ -41,11 +41,22 @@ jobs:
     - name: Show version
       run: tflint --version
 
-    - name: Init TFLint
+#    - name: Init TFLint
+#      run: tflint --init
+
+#    - name: Run TFLint
+#      run: tflint -f compact
+
+    - name: Install TFLint
+      run: |
+        curl -s https://raw.githubusercontent.com/terraform-linters/tflint/master/install.sh | bash
+
+    - name: Initialize TFLint
       run: tflint --init
 
     - name: Run TFLint
       run: tflint -f compact
+
 
     - name: Checkov
       uses: bridgecrewio/checkov-action@master
@@ -54,4 +65,3 @@ jobs:
    
     - name: Terraform Plan
       run: terraform plan
-      

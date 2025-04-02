@@ -14,6 +14,11 @@ terraform {
 }
 
 terraform {
+  required_version = ">= 1.0.0" # Use the latest stable version or specify your desired version
+}
+
+
+terraform {
   backend "s3" {
     bucket = "sctp-ce9-tfstate"
     key    = "aalimsee-ce9-M3.2-github-workflow.tfstate" #Change this

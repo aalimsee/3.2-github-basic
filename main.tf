@@ -14,7 +14,7 @@ terraform {
 }
 
 terraform {
-  required_version = "~> 1.0.0" # Use the latest stable version or specify your desired version
+  required_version = "~> 1.2.0" # Use the latest stable version or specify your desired version
 }
 
 

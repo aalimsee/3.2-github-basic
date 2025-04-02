@@ -5,6 +5,15 @@ provider "aws" {
 }
 
 terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0" # Adjust as needed
+    }
+  }
+}
+
+terraform {
   backend "s3" {
     bucket = "sctp-ce9-tfstate"
     key    = "aalimsee-ce9-M3.2-github-workflow.tfstate" #Change this
